@@ -1,6 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
-  return <div>hello world!</div>;
+  return <div>
+    
+    <p>hello</p>
+  </div>;
+  
 }
 
 export default App;
