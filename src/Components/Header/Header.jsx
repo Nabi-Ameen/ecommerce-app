@@ -1,4 +1,5 @@
 import React from 'react'
+import './header.css'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,7 +9,7 @@ const Header = () => {
   return (
       <Navbar collapseOnSelect bg="primary" expand="lg" variant='dark'>
           <Container>
-              <Navbar.Brand href="#">E-commerceHub</Navbar.Brand>
+              <Navbar.Brand >E-commerceHub</Navbar.Brand>
               <Navbar.Toggle aria-controls="navbarScroll" />
               <Navbar.Collapse id="navbarScroll">
                   <Nav
@@ -16,10 +17,10 @@ const Header = () => {
                       navbarScroll
                      >
                       <Nav>
-                          <Link to="/" className='nav-link'>Home</Link>
+                          <Link to="/" className='nav-link linkscolor text-white'>Home</Link>
                       </Nav>
                       <Nav>
-                          <Link to="/about" className='nav-link'>About</Link>
+                          <Link to="/about" className='nav-link text-white'>About</Link>
                       </Nav>
                   </Nav>
                   <Nav
@@ -27,10 +28,10 @@ const Header = () => {
                       navbarScroll
                      >
                       <Nav>
-                          <Link to="/cart" className='nav-link'>Cart</Link>
+                          <Link to="/cart" className='nav-link text-white'>Cart</Link>
                       </Nav>
                       <Nav>
-                          <Link to="/login" className='nav-link'>Login</Link>
+                          <Link to="/login" className='nav-link text-white'>Login</Link>
                       </Nav>
                   </Nav>
               </Navbar.Collapse>
