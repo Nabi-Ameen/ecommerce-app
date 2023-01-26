@@ -78,25 +78,7 @@ const ContactPageContainer = () => {
             </ul>
           </Col>
         </Row>
-        <Row>
-          <Col>
-            <ListGroup className='contactList'>
-              {
-                myData && myData.length > 0 ? myData.map((item) => {
-                  return (
-                    <ListGroup.Item key={item.name}>
-                      <span>{item.text}</span>
-                      <a href={item.link} rel="noreferrer" target="_blank">
-                        {item.link}
-                      </a>
-                    </ListGroup.Item>
-                  )
-                }) : ''
-              }
 
-            </ListGroup>
-          </Col>
-        </Row>
       </Container>
     </div>
   )

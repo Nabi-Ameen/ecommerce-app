@@ -24,37 +24,37 @@ const FooterComponent = () => {
                             <p>Get in Touch Don't Forget to Follow  me on all Social Network, </p>
                             <ul className='socialIconsList'>
                                 <li className='facebook'>
-                                    <a rel="noreferrer" href="https://www.facebook.com/rohitazadmalik/" target="_blank">
+                                    <a rel="noreferrer" href="#">
                                         <BsFacebook />
                                     </a>
                                 </li>
                                 <li className='linkedin'>
-                                    <a rel="noreferrer" href="https://www.linkedin.com/in/rohitazad/" target="_blank">
+                                    <a rel="noreferrer" href="#">
                                         <BsLinkedin />
                                     </a>
                                 </li>
                                 <li className='twitter'>
-                                    <a rel="noreferrer" href="https://twitter.com/rohitazad" target="_blank">
+                                    <a rel="noreferrer" href="#">
                                         <BsTwitter />
                                     </a>
                                 </li>
                                 <li className='stackover'>
-                                    <a rel="noreferrer" href="https://stackoverflow.com/users/1365428/rohit-azad-malik" target="_blank">
+                                    <a rel="noreferrer" href="#">
                                         <BsStackOverflow />
                                     </a>
                                 </li>
                                 <li className='blogGoogle'>
-                                    <a rel="noreferrer" href="https://rohitazadmalik.blogspot.com/" target="_blank">
+                                    <a rel="noreferrer" href="#">
                                         <BsGoogle />
                                     </a>
                                 </li>
                                 <li className='github'>
-                                    <a rel="noreferrer" href="https://github.com/rohitazad" target="_blank">
+                                    <a rel="noreferrer" href="#">
                                         <BsGithub />
                                     </a>
                                 </li>
                                 <li className='ytube'>
-                                    <a rel="noreferrer" href="https://www.youtube.com/c/AzadMalikRohit" target="_blank">
+                                    <a rel="noreferrer" href="#">
                                         <BsYoutube />
                                     </a>
                                 </li>
@@ -83,13 +83,7 @@ const FooterComponent = () => {
                             </div>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col className='col-12'>
-                            <div className="footerCopyright">
-                                <small>© Learn Coding With Bhai , 2023. Developed and Designed  by <a href="https://www.youtube.com/c/AzadMalikRohit" target="_blank" rel="noreferrer">Rohit Azad Malik (R.A.M)</a>.</small>
-                            </div>
-                        </Col>
-                    </Row>
+                    
                 </Container>
             </footer>
         </>
