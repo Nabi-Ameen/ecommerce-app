@@ -1,16 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { BASE_URL } from '../CommonUnits/apiurl'
-import { STATUS } from '../CommonUnits/status';
+import { BASE_URL } from "../CommonUtils/apiurl";
+import { STATUS } from "../CommonUtils/status";
 
 const initialState = {
     categories: [],
-    categoriesStatus: "",
-    categoriesProduct: [],
-    categoriesProductStatus: ""
+    categoriesStatus: STATUS.IDLE,
+    categoryProducts: [],
+    categoryProductsStatus: STATUS.IDLE
 }
 
+
 const categorySlice = createSlice({
-    name: "category",
+    name: 'category',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
@@ -23,42 +24,39 @@ const categorySlice = createSlice({
                 state.categories = action.payload;
                 state.categoriesStatus = STATUS.SUCCEEDED;
             })
+
             .addCase(fetchAsyncCategories.rejected, (state, action) => {
                 state.categoriesStatus = STATUS.FAILED;
             })
 
-            .addCase(fetchAsyncCategoriesProduct.pending, (state, action) => {
-                state.categoriesProductStatus = STATUS.LOADING;
+            .addCase(fetchAsyncProductsOfCategory.pending, (state, action) => {
+                state.categoryProductsStatus = STATUS.LOADING;
             })
-            .addCase(fetchAsyncCategoriesProduct.fulfilled, (state, action) => {
-                state.productSingle = action.payload;
-                state.categoriesProductStatus = STATUS.SUCCEEDED;
+
+            .addCase(fetchAsyncProductsOfCategory.fulfilled, (state, action) => {
+                state.categoryProducts = action.payload;
+                state.categoryProductsStatus = STATUS.SUCCEEDED;
             })
-            .addCase(fetchAsyncCategoriesProduct.rejected, (state, action) => {
-                state.categoriesProductStatus = STATUS.FAILED;
+
+            .addCase(fetchAsyncProductsOfCategory.rejected, (state, action) => {
+                state.categoryProductsStatus = STATUS.FAILED;
             })
     }
-})
+});
 
-export const fetchAsyncCategories = createAsyncThunk('category/fetch', async () => {
-    const response = await fetch(`${BASE_URL}/products/categories`);
+export const fetchAsyncCategories = createAsyncThunk('categories/fetch', async () => {
+    const response = await fetch(`${BASE_URL}products/categories`);
     const data = await response.json();
     return data;
 });
 
-export const fetchAsyncCategoriesProduct = createAsyncThunk('category-product/fetch', async (category) => {
-    const response = await fetch(`${BASE_URL}/products/category/${category}`)
+export const fetchAsyncProductsOfCategory = createAsyncThunk('category-products/fetch', async (category) => {
+    const response = await fetch(`${BASE_URL}products/category/${category}`);
     const data = await response.json();
-    return data;
+    return data.products;
 });
 
-export const getAllCategory = (state) => state.category.categories;
-export const getAllCategoryStatus = (state) => state.category.categoriesStatus;
-
-export const getProductByCategory = (state) => state.category.categoriesProduct;
-export const getProductByCategoryStatus = (state) => state.category.categoriesProductStatus;
-
+export const getAllCategories = (state) => state.category.categories;
+export const getAllProductsByCategory = (state) => state.category.categoryProducts;
+export const getCategoryProductsStatus = (state) => state.category.categoryProductsStatus;
 export default categorySlice.reducer;
-
-
-

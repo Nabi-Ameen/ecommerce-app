@@ -1,26 +1,39 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import Home from '../Pages/Home/Index'
-import About from '../Pages/About/About'
-import Contact from '../Pages/Contact/Contact'
-import Cart from '../Pages/Cart/Cart'
-import Header from '../Components/Header/Header'
-import Login from '../Pages/Login/Login'
-const RoutsConfig = () => {
-  return (
-      <div>
-          <BrowserRouter>
-              <Header/>
-              <Routes>
-                  <Route path='/' element={<Home />} />
-                  <Route path='/about' element={<About />} />
-                  <Route path='/contact' element={<Contact />} />
-                  <Route path='/cart' element={<Cart />} />
-                  <Route path='/login' element={<Login />} />
-              </Routes>
-          </BrowserRouter>
-      </div>
-  )
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+
+import HeaderComponents from '../Components/Header';
+import HomePageContainer from '../Containers/Home/Index';
+import ContactPageContainer from '../Containers/Contact';
+import AboutPageContainer from '../Containers/About/index.js';
+import CartPageContainer from '../Containers/Cart';
+import ProductsPageContainer from '../Containers/Products';
+import SingleProductContainer from '../Containers/SingleProduct';
+import SearchContainerPage from '../Containers/Search';
+import LoginContainer from '../Containers/Login';
+import FooterComponent from '../Components/Footer';
+import UserContainer from '../Containers/User';
+const RouteConfigComponents = () => {
+    return (
+        <>
+            <BrowserRouter>
+                <HeaderComponents />
+                <Routes>
+                    <Route path="/" element={<HomePageContainer />} />
+                    <Route path="/about" element={<AboutPageContainer />} />
+                    <Route path="/contact" element={<ContactPageContainer />} />
+                    <Route path="/cart" element={<CartPageContainer />} />
+                    <Route path="/product/:id" element={<SingleProductContainer />} />
+                    <Route path="/products/:catId" element={<ProductsPageContainer />} />
+                    <Route path="/search/:searchKey" element={<SearchContainerPage />} />
+                    <Route path="/login" element={<LoginContainer />} />
+                    <Route path='/user' element={<UserContainer />} />
+                </Routes>
+                <FooterComponent />
+            </BrowserRouter>
+        </>
+    )
 }
 
-export default RoutsConfig
+
+export default RouteConfigComponents;

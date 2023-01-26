@@ -1,16 +1,15 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import RoutsConfig from "./Routes/RoutsConfig";
-import Store from "./Store/store";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import RouteConfigComponents from './Routes/RoutsConfig'
 import { Provider } from "react-redux";
-
+import store from "./Store/store";
 function App() {
   return (
-    <>
-      <Provider store={Store}>
-        <RoutsConfig />
-      </Provider>
-    </>
-  )
+    <Provider store={store}>
+      <RouteConfigComponents />
+    </Provider>
+
+  );
 }
 
 export default App;
